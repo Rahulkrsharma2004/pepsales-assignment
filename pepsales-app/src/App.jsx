@@ -1,13 +1,19 @@
-// import React from 'react';
-import Swimlane from './components/Swimlane';
-import Filter from './components/Filter';
+import { useState } from 'react';
+import Navbar from './components/Navbar';
+import TodoList from './components/TodoList';
+import AddTodoModal from './components/AddTodoModal';
 
 const App = () => {
+  const [isAddTodoModalOpen, setAddTodoModalOpen] = useState(false);
+
+  const openAddTodoModal = () => setAddTodoModalOpen(true);
+  const closeAddTodoModal = () => setAddTodoModalOpen(false);
+
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Swimlane UI</h1>
-      <Filter />
-      <Swimlane />
+    <div className="font-sans antialiased">
+      <Navbar openAddTodoModal={openAddTodoModal} />
+      <TodoList />
+      <AddTodoModal isOpen={isAddTodoModalOpen} onClose={closeAddTodoModal} />
     </div>
   );
 };
