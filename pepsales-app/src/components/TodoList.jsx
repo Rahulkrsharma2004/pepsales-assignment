@@ -11,9 +11,10 @@ const TodoList = () => {
   const error = useSelector((state) => state.todos.error);
 
   useEffect(() => {
-    if (status === 'idle') {
-      dispatch(fetchTodos());
-    }
+    // if (status === 'idle') {
+    //   dispatch(fetchTodos());
+    // }
+    dispatch(fetchTodos())
   }, [dispatch, status]);
 
   const handleDelete = (id) => {
